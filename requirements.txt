@@ -4,3 +4,4 @@ streamlit
 scikit_learn
 matplotlib
 xgboost
+graphviz
