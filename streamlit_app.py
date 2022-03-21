@@ -27,6 +27,10 @@ import matplotlib.pyplot
 
 
 max_depth_input = st.slider("Max depth", 1, 100, 5)
+colsample_bytree_input = st.slider("Colsample bytree", 0, 1, 0.5)
+learning_rate_input = st.slider("Learning rate", 0, 1, 0.2)
+alpha_input = st.slider("Alpha", 1, 100, 10)
+n_estimators_input = st.slider("n estimators", 1, 100, 20)
 
 dataset = pandas.read_csv('weatherAUS.csv')
 
@@ -94,7 +98,7 @@ data_dmatrix = xgboost.DMatrix(data=x,label=y)
 
 X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=123)
 
-xg_reg = xgboost.XGBRegressor(colsample_bytree = 0.5, learning_rate = 0.2, max_depth = max_depth_input, alpha = 10, n_estimators = 20)
+xg_reg = xgboost.XGBRegressor(colsample_bytree = colsample_bytree_input, learning_rate = learning_rate_input, max_depth = max_depth_input, alpha = alpha_input, n_estimators = n_estimators_input)
 
 xg_reg.fit(X_train,y_train)
 
@@ -103,8 +107,8 @@ preds = xg_reg.predict(X_test)
 rmse = numpy.sqrt(mean_squared_error(y_test, preds))
 st.write("RMSE: %f" % (rmse))
 
-params = {'colsample_bytree': 0.5,'learning_rate': 0.2,
-                'max_depth': 5, 'alpha': 10}
+params = {'colsample_bytree': colsample_bytree_input,'learning_rate': learning_rate_input,
+                'max_depth': max_depth_input, 'alpha': alpha_input}
 
 cv_results = xgboost.cv(dtrain=data_dmatrix, params=params, nfold=3,
                     num_boost_round=50,early_stopping_rounds=10,metrics="rmse", as_pandas=True, seed=123)
