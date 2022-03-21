@@ -27,8 +27,8 @@ import matplotlib.pyplot
 
 
 max_depth_input = st.slider("Max depth", 1, 100, 5)
-colsample_bytree_input = st.slider("Colsample bytree", 0, 1, 0.5)
-learning_rate_input = st.slider("Learning rate", 0, 1, 0.2)
+colsample_bytree_input = st.slider("Colsample bytree", 0.0, 1.0, 0.5)
+learning_rate_input = st.slider("Learning rate", 0.0, 1.0, 0.2)
 alpha_input = st.slider("Alpha", 1, 100, 10)
 n_estimators_input = st.slider("n estimators", 1, 100, 20)
 
