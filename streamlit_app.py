@@ -1,3 +1,6 @@
+import os
+os.system('pip install graphviz')
+
 from collections import namedtuple
 import altair as alt
 import math
