@@ -7,8 +7,9 @@ os.system('sh build.sh')
 os.system('cd python-package')
 os.system('python setup.py install')
 os.system('pip install graphviz')
+os.system('pip install python-pydot python-pydot-ng')
 os.system('pip install -U scikit-learn scipy matplotlib')
-
+python-pydot python-pydot-ng
 from collections import namedtuple
 import altair as alt
 import math
