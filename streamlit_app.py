@@ -1,4 +1,5 @@
 import os
+os.system('conda install -c conda-forge xgboost')
 os.system('pip install xgboost')
 os.system('pip install graphviz')
 
