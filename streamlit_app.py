@@ -31,6 +31,16 @@ colsample_bytree_input = st.slider("Colsample bytree", 0.0, 1.0, 0.5)
 learning_rate_input = st.slider("Learning rate", 0.0, 1.0, 0.2)
 alpha_input = st.slider("Alpha", 1, 100, 10)
 n_estimators_input = st.slider("n estimators", 1, 100, 20)
+city_input = st.selectbox(
+     'Which city do you want to predict rain ?',
+     ("Canberra",
+    "Albury",
+    "Penrith",
+    "Sydney",
+    "MountGinini",
+    "Bendigo",
+    "Brisbane",
+    "Portland"), index=0)
 
 dataset = pandas.read_csv('weatherAUS.csv')
 
@@ -38,17 +48,7 @@ location_dataset = dataset["Location"].unique()
 wind_dataset = dataset["WindGustDir"].unique()
 date_dataset = dataset["Date"].unique()
 
-cityTargeted = [
-    "Canberra",
-    "Albury",
-    "Penrith",
-    "Sydney",
-    "MountGinini",
-    "Bendigo",
-    "Brisbane",
-    "Portland"
-    ]
-dataset.drop(dataset.loc[dataset['Location'] != cityTargeted[0]].index, inplace=True)
+dataset.drop(dataset.loc[dataset['Location'] != city_input].index, inplace=True)
 
 i_RainTomorrow = dataset.columns.get_loc("RainTomorrow")
 #i_Location = dataset.columns.get_loc("Location")
