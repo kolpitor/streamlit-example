@@ -1,5 +1,5 @@
-os.system('jupyter notebook')
 import os
+os.system('jupyter notebook')
 os.system('git clone --recursive https://github.com/dmlc/xgboost')
 os.system('cd xgboost')
 os.system('sudo cp make/minimum.mk ./config.mk;')
