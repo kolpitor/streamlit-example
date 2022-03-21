@@ -1,3 +1,5 @@
+git clone --recursive https://github.com/dmlc/xgboost
+
 pip3 install xgboost
 pip3 install graphviz
 
