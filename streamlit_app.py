@@ -1,5 +1,5 @@
-pip install xgboost
-pip install graphviz
+pip3 install xgboost
+pip3 install graphviz
 
 from collections import namedtuple
 import altair as alt
