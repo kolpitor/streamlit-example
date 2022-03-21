@@ -101,7 +101,7 @@ xg_reg.fit(X_train,y_train)
 preds = xg_reg.predict(X_test)
 
 rmse = numpy.sqrt(mean_squared_error(y_test, preds))
-print("RMSE: %f" % (rmse))
+st.write("RMSE: %f" % (rmse))
 
 params = {'colsample_bytree': 0.5,'learning_rate': 0.2,
                 'max_depth': 5, 'alpha': 10}
@@ -109,6 +109,6 @@ params = {'colsample_bytree': 0.5,'learning_rate': 0.2,
 cv_results = xgboost.cv(dtrain=data_dmatrix, params=params, nfold=3,
                     num_boost_round=50,early_stopping_rounds=10,metrics="rmse", as_pandas=True, seed=123)
 
-print((cv_results["test-rmse-mean"]).tail(1))
+st.write((cv_results["test-rmse-mean"]).tail(1))
 
 xg_reg = xgboost.train(params=params, dtrain=data_dmatrix, num_boost_round=10)
