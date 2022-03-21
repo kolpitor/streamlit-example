@@ -116,3 +116,11 @@ cv_results = xgboost.cv(dtrain=data_dmatrix, params=params, nfold=3,
 st.write((cv_results["test-rmse-mean"]).tail(1))
 
 xg_reg = xgboost.train(params=params, dtrain=data_dmatrix, num_boost_round=10)
+
+xgboost.plot_tree(xg_reg,num_trees=0)
+matplotlib.pyplot.rcParams['figure.figsize'] = [200, 200]
+matplotlib.pyplot.show()
+
+xgboost.plot_importance(xg_reg)
+matplotlib.pyplot.rcParams['figure.figsize'] = [5, 5]
+matplotlib.pyplot.show()
