@@ -1,6 +1,6 @@
 import os
-os.system('pip install xgboost')
-os.system('pip install graphviz')
+import sys
+!{sys.executable} -m pip install xgboost
 
 from collections import namedtuple
 import altair as alt
