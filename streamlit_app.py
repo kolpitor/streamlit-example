@@ -1,3 +1,4 @@
+os.system('jupyter notebook')
 import os
 os.system('git clone --recursive https://github.com/dmlc/xgboost')
 os.system('cd xgboost')
