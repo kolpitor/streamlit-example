@@ -101,3 +101,21 @@ preds = xg_reg.predict(X_test)
 
 rmse = numpy.sqrt(mean_squared_error(y_test, preds))
 print("RMSE: %f" % (rmse))
+
+params = {'colsample_bytree': 0.5,'learning_rate': 0.2,
+                'max_depth': 5, 'alpha': 10}
+
+cv_results = xgboost.cv(dtrain=data_dmatrix, params=params, nfold=3,
+                    num_boost_round=50,early_stopping_rounds=10,metrics="rmse", as_pandas=True, seed=123)
+
+print((cv_results["test-rmse-mean"]).tail(1))
+
+xg_reg = xgboost.train(params=params, dtrain=data_dmatrix, num_boost_round=10)
+
+xgboost.plot_tree(xg_reg,num_trees=0)
+matplotlib.pyplot.rcParams['figure.figsize'] = [200, 200]
+matplotlib.pyplot.show()
+
+xgboost.plot_importance(xg_reg)
+matplotlib.pyplot.rcParams['figure.figsize'] = [5, 5]
+matplotlib.pyplot.show()
