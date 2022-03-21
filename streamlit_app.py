@@ -1,5 +1,5 @@
 import os
-os.system('pip install xgboost‑1.5.1‑cp310‑cp310‑win_amd64.whl')
+os.system('pip install xgboost')
 os.system('pip install graphviz')
 
 from collections import namedtuple
