@@ -17,6 +17,7 @@ import streamlit as st
 import pandas
 import numpy
 import xgboost
+import sklearn
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
 import matplotlib.pyplot
